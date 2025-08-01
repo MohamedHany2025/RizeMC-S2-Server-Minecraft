@@ -10,6 +10,36 @@
 <body>
 
 <header>
+        <!-- عداد تنازالي من اليوم الى ثلاثه اغسطس -->
+        <div class="countdown">
+            <p>العد التنازلي لإطلاق السيرفر: <span id="countdown"></span></p>
+        </div>
+        <script>
+            // عداد تنازلي
+            const countdownDate = new Date("August 3, 2025 00:00:00").getTime();
+            const countdownElement = document.getElementById("countdown");
+
+            setInterval(() => {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+
+                if (distance < 0) {
+                    clearInterval(this);
+                    countdownElement.innerHTML = "السيرفر مفتوح الآن!";
+                    //اظهار الايبي والport الحقيقي بعد اطلاق السيرفر
+                    document.getElementById("ip").innerText = "All-Weather-Mods.aternos.me";
+                    document.getElementById("port").innerText = "48489";
+                }
+            }, 1000);
+
+        </script>
         <!-- عرض الصوره هنا -->
         <img src="logo.ico" alt="AWM Logo" class="logo" title="𝓐𝓦𝓜 @ 𝓐𝓵𝓵 𝓦𝓮𝓪𝓽𝓱𝓮𝓻 𝓜𝓸𝓭𝓼">
         <!-- العنوان والوصف -->
