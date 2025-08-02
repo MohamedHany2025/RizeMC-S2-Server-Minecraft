@@ -10,13 +10,13 @@
 <body>
 
 <header>
-        <!-- عداد تنازالي من اليوم الى ثلاثه اغسطس -->
+        <!-- عداد تنازالي من اليوم الى 5 اغسطس -->
         <div class="countdown">
             <p>العد التنازلي لإطلاق السيرفر: <span id="countdown"></span></p>
         </div>
         <script>
             // عداد تنازلي
-            const countdownDate = new Date("August 3, 2025 00:00:00").getTime();
+            const countdownDate = new Date("August 5, 2025 10:30:00").getTime();
             const countdownElement = document.getElementById("countdown");
 
             setInterval(() => {
@@ -36,9 +36,15 @@
                     //اظهار الايبي والport الحقيقي بعد اطلاق السيرفر
                     document.getElementById("ip").innerText = "All-Weather-Mods.aternos.me";
                     document.getElementById("port").innerText = "48489";
+                    // تغيير لون الزر الخاص بنسخ الايبي والport الى اللون الأخضر
+                    const copyButtons = document.querySelectorAll('.copy-button');
+                    copyButtons.forEach(button => {
+                        button.style.backgroundColor = 'green';
+                        button.style.color = 'white';
+                        button.disabled = false; // تمكين الأزرار بعد إطلاق السيرفر
+                    });
                 }
             }, 1000);
-
         </script>
         <!-- عرض الصوره هنا -->
         <img src="logo.ico" alt="AWM Logo" class="logo" title="𝓐𝓦𝓜 @ 𝓐𝓵𝓵 𝓦𝓮𝓪𝓽𝓱𝓮𝓻 𝓜𝓸𝓭𝓼">
