@@ -1,420 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="logo.ico" type="image/x-icon" title="AWM Logo" class="logo">
-    <script src="script.js"></script>
-    <title>𝓐𝓦𝓜 @ 𝓐𝓵𝓵 𝓦𝓮𝓪𝓽𝓱𝓮𝓻 𝓜𝓸𝓭𝓼</title>
-</head>
-<body>
 
-<header>
-        <!-- عداد تنازالي من اليوم الى 5 اغسطس -->
-        <div class="countdown">
-            <p>العد التنازلي لإطلاق السيرفر: <span id="countdown"></span></p>
-        </div>
-        <script>
-            // عداد تنازلي
-            const countdownDate = new Date("August 5, 2025 10:30:00").getTime();
-            const countdownElement = document.getElementById("countdown");
-
-            setInterval(() => {
-                const now = new Date().getTime();
-                const distance = countdownDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                countdownElement.innerHTML = `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
-
-                if (distance < 0) {
-                    clearInterval(this);
-                    countdownElement.innerHTML = "السيرفر مفتوح الآن!";
-                    //اظهار الايبي والport الحقيقي بعد اطلاق السيرفر
-                    document.getElementById("ip").innerText = "All-Weather-Mods.aternos.me";
-                    document.getElementById("port").innerText = "48489";
-                    // تغيير لون الزر الخاص بنسخ الايبي والport الى اللون الأخضر
-                    const copyButtons = document.querySelectorAll('.copy-button');
-                    copyButtons.forEach(button => {
-                        button.style.backgroundColor = 'green';
-                        button.style.color = 'white';
-                        button.disabled = false; // تمكين الأزرار بعد إطلاق السيرفر
-                        // اظهار انفجار خفيف على الزر النسخ عند الضغط عليه
-                        button.addEventListener('click', () => {
-                            button.style.transform = 'scale(0.9)';
-                            setTimeout(() => {
-                                button.style.transform = 'scale(1)';
-                            }, 100);
-                        });
-                    });
-                }
-            }, 1000);
-        </script>
-        <!-- عرض الصوره هنا -->
-        <img src="logo.ico" alt="AWM Logo" class="logo" title="𝓐𝓦𝓜 @ 𝓐𝓵𝓵 𝓦𝓮𝓪𝓽𝓱𝓮𝓻 𝓜𝓸𝓭𝓼">
-        <!-- العنوان والوصف -->
-        <h1 class="title" title="𝓐𝓦𝓜 @ 𝓐𝓵𝓵 𝓦𝓮𝓪𝓽𝓱𝓮𝓻 𝓜𝓸𝓭𝓼">𝓐𝓦𝓜 @ 𝓐𝓵𝓵 𝓦𝓮𝓪𝓽𝓱𝓮𝓻 𝓜𝓸𝓭𝓼</h1>
-        <p class="description" title="الوصف">سيرفر ماين كرافت للاجواء العصافيه</p>
-        <!-- زر نسخ الip -->
-        <button class="copy-button" onclick="copyToClipboard()" title="نسخ IP">نسخ IP </button>
-         <!-- زر نسخ port -->
-        <button class="copy-button" onclick="copyPort()" title="نسخ Port">نسخ Port</button>
-        <!-- عرض الip والport -->
-        <p class="ip-port" title="IP و Port">IP: <span id="ip">! قريباً عند اطلاق السيرفر</span> | Port: <span id="port">! قريباً عند اطلاق السيرفر</span></p>
-</header>
-    <!-- القوانين والمعلومات -->
-    <main>
-        <section>
-            <h2  title="القوانين">القوانين</h2>
-            <ul>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> احترام الجميع وعدم استخدام ألفاظ نابية</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> عدم استخدام أي برامج غش أو اختراق</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> عدم إزعاج اللاعبين الآخرين</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> اتباع تعليمات المشرفين والإداريين</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تروج لأي محتوى غير لائق أو مسيء</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تسرق أو تدمر ممتلكات اللاعبين الآخرين</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تستخدم أسماء غير لائقة أو مسيئة</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تروج لأي محتوى إباحي أو عنيف</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تروج لأي محتوى سياسي أو ديني</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تستخدم أي برامج أو أدوات تؤثر على أداء السيرفر</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تستخدم أي برامج أو أدوات تؤثر على تجربة اللاعبين الآخرين</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تستخدم أي برامج أو أدوات تؤثر على توازن اللعبة</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تنشر الاشياء دينيه</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تنشر الاشياء سياسيه</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تنشر الاشياء عنصريه</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تنشر الاشياء التي تروج للعنف</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> لا تنشر الاشياء التي تروج للكراهية</li>
-                <li title="تعليمات"> <span style="color: green"; title="صح">✔</span> <span style="color: red";>❤ </span></span>انشر اي شئ عن فلسطين ودعم اخوانا اذا اردت</li>
-                <li title="تعليمات">👌 لو خالفت القوانين لا تندم على م سيحدث لك</li>
-            </ul>
-        </section>
-        <section>
-            <h2 title="المعلومات">المعلومات</h2>
-            <ul>
-                <li title="تعليمات">السيرفر يدعم الإصدارات 1.8 إلى 1.21.8.</li>
-                <li title="تعليمات">يوفر السيرفر بيئات لعب متنوعة مثل البقاء، الإبداع، والقتال.</li>
-                <li title="تعليمات">يمكنك الانضمام إلى مجتمعنا على <a href="https://m.me/j/AbZJGlh90aHtuLEG/" target="_blank">في جروب فيس بوك</a> لمزيد من التفاعل.</li>
-                <li title="تعليمات">يمكنك العب في السيرفر من جوال او بيسي.</li>
-                <li title="تعليمات">السيرفر متاح على مدار الساعة.</li>
-                <li title="تعليمات">السيرفر محمي ضد الهاكات</li>
-                <li title="تعليمات">نحن نعمل على تحديث السيرفر بانتظام لإضافة ميزات جديدة.</li>
-                <li title="تعليمات">إذا كان لديك أي اقتراحات أو أفكار، لا تتردد في مشاركتها معنا.</li>
-            </ul>
-        </section>
-        <section>
-            <h2 title="المساعدة">المساعدة</h2>
-            <p title="تعليمات">إذا كنت بحاجة إلى مساعدة، يمكنك التواصل معنا <a href="https://m.me/j/AbZJGlh90aHtuLEG/" target="_blank">في جروب فيسبوك</a>.</p>
-            <p title="تعليمات">نحن هنا لدعمك ومساعدتك في أي مشكلة تواجهها.</p>
-            <p title="تعليمات">💪 يمكنك تقديم <a href="" onclick="alert('قريباً عند اطلاق السيرفر')">ادمن</a></p>
-            <p title="تعليمات">( Mods ) و خانه المودات ( Plugins ) قريباً عند اطلاق السيرفر سيتم اضافت خانه البلوجنز</p>
-        </section>
-        <!-- معلومات عن الادمن وصاحب السيرفر -->
-        <section>
-            <h2 title="معلومات عن الادمن وصاحب السيرفر">معلومات عن الادمن وصاحب السيرفر</h2>
-            <p>
-            <a href="https://www.facebook.com/xspeedo.gaming.2025/" target="_blank" title="صاحب السيرفر ( 𝒪𝓌𝓃ℯ𝓇 ) 𝓜𝓸𝓱𝓪𝓶𝓮𝓭">صاحب السيرفر ( 𝒪𝓌𝓃ℯ𝓇 ) 𝓜𝓸𝓱𝓪𝓶𝓮𝓭</a>
-            <br>
-            <a href="https://www.facebook.com/profile.php?id=61576660027421" target="_blank" title="صاحب السيرفر ( 𝒪𝓌𝓃ℯ𝓇 ) 𝓕𝓪𝓻𝓮𝓼">صاحب السيرفر ( 𝒪𝓌𝓃ℯ𝓇 ) 𝓕𝓪𝓻𝓮𝓼</a>
-            <br>
-            <a href="#">الادمن ( 𝒜𝒹𝓂𝒾𝓃 ) 𝒜𝓌𝓂 لا يوجد</a>
-            </p>
-    </main>
-    <!-- تصميم وكوبي رايت ! -->
-<footer>
-    <p>جميع الحقوق محفوظة في &copy; 2025 <br>تصميم بواسطة محمد هاني <br> <a href="https://m.me/j/AbZJGlh90aHtuLEG/" target="_blank">𝓐𝓦𝓜</a>.</p>
-</footer>
-
-<script>
-function copyToClipboard() {
-    const ip = document.getElementById("ip").innerText;
-    navigator.clipboard.writeText(ip).then(() => {
-        alert("IP copied to clipboard: " + ip);
-    }).catch(err => {
-        console.error("Failed to copy IP: ", err);
-    });
-}   
-function copyPort() {
-    const port = document.getElementById("port").innerText;
-    navigator.clipboard.writeText(port).then(() => {
-        alert("Port copied to clipboard: " + port);
-    }).catch(err => {
-        console.error("Failed to copy Port: ", err);
-    });
-}
-window.onload = function() {
-    // هنا يمكنك إضافة أي كود JavaScript لتحميل البيانات أو إعدادات الصفحة
-    console.log("Page loaded successfully.");
-    // حفظ اللغة المختارة في التخزين المحلي
-    const savedLanguage = localStorage.getItem('language') || 'ar'; // افتراضيًا اللغة العربية
-    changeLanguage(savedLanguage);
-
-};
-
-</script>
-<style>
-    
-    header {
-        text-align: center;
-        padding: 20px;
-        background-color: #f0f0f0;
-        /* Bold */
-        font-weight: bold;
-
-    }
-    .logo {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%; /* الصوره حوافها دائريه */
-        margin-bottom: 20px;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-    }
-    .logo:hover {
-        transform: scale(1.1);
-    }
-    .countdown {
-        margin-bottom: 20px;
-    }
-    .title {
-        font-size: 2em;
-        color: #333;
-                /* Bold */
-        font-weight: bold;
- 
-    }
-    .description {
-        font-size: 1.2em;
-        color: #000;
-                /* Bold */
-        font-weight: bold;
-
-    }
-    .copy-button {
-        padding: 10px 20px;
-        margin: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-                /* Bold */
-        font-weight: bold;
-    }
-
-    .ip-port {
-        font-size: 1.2em;
-        color: #333;
-                /* Bold */
-        font-weight: bold;
-        
-    }
-    /* الكلام في المنتصف */
-
-    main {
-        padding: 20px;
-        background-color: #fff;
-        max-width: 800px;
-        margin: auto;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                /* Bold */
-        font-weight: bold;
-            }
-    section {
-        margin-bottom: 20px;
-                /* Bold */
-        font-weight: bold;
-        
-    }   
-    h2 {
-        font-size: 1.5em;
-        color: #007bff;
-    }
-
-    ul {
-        list-style-type: disc;
-        padding-left: 20px;
-                /* Bold */
-        font-weight: bold;
-        
-    }
-    ul li {
-        font-size: 1.2em;
-        color: #333;
-                /* Bold */
-        font-weight: bold;
-        
-    }
-    /* Responsive styles */
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #e9ecef;
-        color: #333;
-                /* Bold */
-        font-weight: bold;
-        
-    }
-    p {
-        font-size: 1em;
-        line-height: 1.5;
-                /* Bold */
-        font-weight: bold;
-        
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #f0f0f0;
-        font-size: 0.9em;
-        color: #666;
-                /* Bold */
-        font-weight: bold;
-        
-    }
-    footer a {
-        color: #007bff;
-        text-decoration: none;
-                /* Bold */
-        font-weight: bold;
-        
-    }
-    footer a:hover {
-        text-decoration: underline;
-                /* Bold */
-        font-weight: bold;
-        
-    }
-    /* Responsive header */
-    @media (max-width: 768px) {
-        header {
-            padding: 10px;
-                    /* Bold */
-        font-weight: bold;
-        
-        }
-        .countdown {
-            margin-bottom: 10px;
-                    /* Bold */
-        font-weight: bold;
-        
-        }
-        .logo {
-            width: 80px;
-            height: 80px;
-            /* الصوره حوافها دائريه */
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        .title {
-            font-size: 1.5em;
-                    /* Bold */
-        font-weight: bold;
-        
-        }   
-        .description {
-            font-size: 1em;
-                    /* Bold */
-        font-weight: bold;
-                }
-        .ip-port {
-            font-size: 1em;
-                    /* Bold */
-        font-weight: bold;
-        
-        }
-        
-        .copy-button {
-            padding: 8px 16px;
-            font-size: 0.9em;
-                    /* Bold */
-        font-weight: bold;
-        
-        }
-        main {
-            padding: 10px;
-                    /* Bold */
-        font-weight: bold;
-                }
-        section {
-            margin-bottom: 15px;
-                    /* Bold */
-        font-weight: bold;
-        
-        }
-        h2 {
-            font-size: 1.3em;
-            color: #007bff;
-                    /* Bold */
-        font-weight: bold;
-      
-        }
-        ul {
-            padding-left: 15px;
-                    /* Bold */
-        font-weight: bold;
-            }
-        ul li {
-            font-size: 1em;
-                    /* Bold */
-        font-weight: bold;
-      
-        }
-        /* Responsive footer */
-        footer {
-            font-size: 0.9em;
-            padding: 10px;
-                    /* Bold */
-        font-weight: bold;
-      
-        }   
-        /* تسجل الدخول */
-    }
-    /* End of responsive styles */
-    a {
-        color: #007bff;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    .copy-button:hover {
-        background-color: #0056b3;
-    }
-    .copy-button:active {
-        background-color: #004085;
-    }
-    .copy-button:focus {
-        outline: none;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
-    .copy-button:disabled {
-        background-color: #6c757d;
-        cursor: not-allowed;
-    }
-    .copy-button:disabled:hover {
-        background-color: #6c757d;
-    }
-    .copy-button:disabled:active {
-        background-color: #6c757d;
-    }
-    .copy-button:disabled:focus {
-        box-shadow: none;
-    }
-    .copy-button:disabled {
-        opacity: 0.6;
-    }
-    .copy-button:disabled:hover {
-        opacity: 0.6;
-    }
-    .copy-button:disabled:active {
-        opacity: 0.6;
-    }
-    .copy-button:disabled:focus {
-        box-shadow: none;
-    }
-</style>
-</body>
-</html>
