@@ -3,7 +3,7 @@
 <div align="center">
 
 ![Kakin Server](https://img.shields.io/badge/Minecraft-Server-green?style=for-the-badge&logo=minecraft)
-![Version](https://img.shields.io/badge/Version-1.20.x-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.21.9.x-blue?style=for-the-badge)
 ![Players](https://img.shields.io/badge/Java-Cracked%20%26%20Premium-orange?style=for-the-badge)
 
 **🌟 الموسم الثاني - تجربة محسنة بالكامل! 🌟**
