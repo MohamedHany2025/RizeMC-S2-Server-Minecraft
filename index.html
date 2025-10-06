@@ -1,1 +1,579 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="logo2.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيرفر كاكين - عالم ما بعد الحرب العظيمة</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
 
+        /* خلفية النجوم */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        .star:nth-child(odd) {
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(3n) {
+            animation-delay: 2s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* الهيدر */
+        .header {
+            background: linear-gradient(45deg, #ff4444, #ff8800, #ffdd00);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+            position: relative;
+        }
+
+        .header-image {
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 3px solid #ffdd00;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #fff700, #ffd700);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.8),
+                0 0 40px rgba(255, 215, 0, 0.6),
+                0 0 60px rgba(255, 215, 0, 0.4),
+                2px 2px 8px rgba(0,0,0,0.8);
+            animation: luxury-shake 0.8s ease-in-out infinite, golden-glow 2s ease-in-out infinite alternate;
+            position: relative;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+        }
+
+        @keyframes luxury-shake {
+            0%, 100% { 
+                transform: translateX(0) translateY(0) rotate(0deg);
+            }
+            10% { 
+                transform: translateX(-1px) translateY(-1px) rotate(-0.5deg);
+            }
+            20% { 
+                transform: translateX(1px) translateY(1px) rotate(0.5deg);
+            }
+            30% { 
+                transform: translateX(-1px) translateY(1px) rotate(-0.3deg);
+            }
+            40% { 
+                transform: translateX(1px) translateY(-1px) rotate(0.3deg);
+            }
+            50% { 
+                transform: translateX(-0.5px) translateY(-0.5px) rotate(-0.2deg);
+            }
+            60% { 
+                transform: translateX(0.5px) translateY(0.5px) rotate(0.2deg);
+            }
+            70% { 
+                transform: translateX(-0.5px) translateY(0.5px) rotate(-0.1deg);
+            }
+            80% { 
+                transform: translateX(0.5px) translateY(-0.5px) rotate(0.1deg);
+            }
+            90% { 
+                transform: translateX(-0.2px) translateY(-0.2px) rotate(-0.05deg);
+            }
+        }
+
+        @keyframes golden-glow {
+            0% { 
+                background-position: 0% 50%;
+                filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+            }
+            100% { 
+                background-position: 100% 50%;
+                filter: brightness(1.8) drop-shadow(0 0 20px rgba(255, 215, 0, 0.9));
+            }
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin: 1rem 0 0 0;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+
+        /* المحتوى الرئيسي */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.1), rgba(255, 136, 0, 0.1));
+            border: 2px solid #ff4444;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 32px rgba(255, 68, 68, 0.2);
+        }
+
+        .story-section h2 {
+            color: #ffdd00;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .story-section p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* الفئات الأربع */
+        .factions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .faction {
+            background: linear-gradient(135deg, rgba(255, 136, 0, 0.2), rgba(255, 221, 0, 0.1));
+            border: 2px solid #ff8800;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faction:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 136, 0, 0.3);
+        }
+
+        .faction::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 221, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .faction:hover::before {
+            opacity: 1;
+            animation: shine 1s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .faction h3 {
+            color: #ff4444;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .faction-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* قسم الحياة في العالم */
+        .world-life {
+            background: linear-gradient(135deg, rgba(255, 221, 0, 0.1), rgba(255, 68, 68, 0.1));
+            border: 2px solid #ffdd00;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .world-life h2 {
+            color: #ff8800;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature {
+            background: rgba(255, 136, 0, 0.1);
+            border: 1px solid #ff8800;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        /* أزرار التفاعل */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff4444, #ff8800);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 68, 68, 0.5);
+            background: linear-gradient(45deg, #ff6666, #ffaa00);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .factions {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية النجوم -->
+    <div class="stars" id="stars"></div>
+
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="header-image">
+            <img src="logo1.jpg" alt="عالم كاكين المدمر بعد الحرب العظيمة" onerror="this.style.display='none'; document.getElementById('fallback-svg').style.display='block';">
+            <!-- SVG احتياطي في حالة عدم وجود الصورة -->
+            <svg id="fallback-svg" style="display: none;" width="100%" height="200" viewBox="0 0 800 200">
+                <!-- خلفية السماء الحمراء -->
+                <defs>
+                    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#cc3333;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#331111;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="800" height="200" fill="url(#skyGradient)"/>
+                
+                <!-- القلاع المدمرة -->
+                <polygon points="100,150 120,120 140,130 160,110 180,140 200,150 200,200 100,200" fill="#2a2a2a" opacity="0.8"/>
+                <polygon points="250,160 270,130 290,140 310,120 330,150 350,160 350,200 250,200" fill="#333333" opacity="0.7"/>
+                <polygon points="400,140 420,110 440,120 460,100 480,130 500,140 500,200 400,200" fill="#2a2a2a" opacity="0.8"/>
+                <polygon points="550,155 570,125 590,135 610,115 630,145 650,155 650,200 550,200" fill="#333333" opacity="0.7"/>
+                
+                <!-- الشخصيات الصغيرة -->
+                <circle cx="150" cy="180" r="3" fill="#444444"/>
+                <rect x="148" y="183" width="4" height="8" fill="#444444"/>
+                
+                <circle cx="300" cy="185" r="3" fill="#444444"/>
+                <rect x="298" y="188" width="4" height="8" fill="#444444"/>
+                
+                <circle cx="450" cy="175" r="3" fill="#444444"/>
+                <rect x="448" y="178" width="4" height="8" fill="#444444"/>
+                
+                <circle cx="600" cy="180" r="3" fill="#444444"/>
+                <rect x="598" y="183" width="4" height="8" fill="#444444"/>
+                
+                <!-- الدخان والغبار -->
+                <circle cx="130" cy="120" r="8" fill="#666666" opacity="0.3"/>
+                <circle cx="320" cy="110" r="6" fill="#666666" opacity="0.3"/>
+                <circle cx="480" cy="100" r="7" fill="#666666" opacity="0.3"/>
+                
+                <!-- النص التوضيحي -->
+                <text x="400" y="50" text-anchor="middle" fill="#ffdd00" font-size="16" font-weight="bold">عالم كاكين المدمر</text>
+            </svg>
+        </div>
+        <h1>🏰 سيرفر كاكين 🏰</h1>
+        <div style="background: rgba(255, 221, 0, 0.2); border: 2px solid #ffdd00; border-radius: 10px; padding: 1rem; margin: 1rem 0; display: inline-block;">
+            <h2 style="margin: 0; color: #ffdd00; font-size: 1.5rem;">⭐ الموسم الثاني ⭐</h2>
+            <p style="margin: 0.5rem 0 0 0; color: #fff;">جافا مكركة وأصلية - تجربة محسنة بالكامل!</p>
+        </div>
+        <p>عالم ما بعد الحرب العظيمة - اختر مصيرك واكتب تاريخك</p>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+        <!-- قصة العالم -->
+        <section class="story-section">
+            <h2>⚔️ قصة العالم</h2>
+            <p>
+                بعد حرب عظيمة دمرت قارة كاكين، سقطت المملكة العظيمة التي كانت تحكم العالم وتنشر العدل. 
+                انتشر الفساد في كل مكان، وتفرق الناس في الأرض يبحثون عن النجاة والبقاء.
+            </p>
+            <p>
+                الآن، العالم بلا قيود أو حماية من أي سلطة عليا. كل فرد عليه أن يعتمد على ذكائه وقوته 
+                ليبني مملكته الخاصة ويحمي نفسه وثرواته من الأخطار المحيطة.
+            </p>
+        </section>
+
+        <!-- الفئات الأربع -->
+        <section>
+            <h2 style="text-align: center; color: #ffdd00; font-size: 2.5rem; margin-bottom: 2rem;">🌍 فئات العالم الأربع</h2>
+            <div class="factions">
+                <!-- الثلاث فئات في الأعلى -->
+                <div class="faction">
+                    <span class="faction-icon">⚔️</span>
+                    <h3>الفايكينغ</h3>
+                    <p>محاربون شرسون يغزون كل أرض تقع تحت أنظارهم. ينهبون الثروات ويفسدون في الأرض، لا يعرفون الرحمة في معاركهم.</p>
+                </div>
+                
+                <div class="faction">
+                    <span class="faction-icon">🏘️</span>
+                    <h3>الناس العادية</h3>
+                    <p>مواطنون يسعون للتطور التدريجي وبناء دولهم الخاصة. يعتمدون على التعاون والتخطيط الذكي للنجاة والازدهار.</p>
+                </div>
+                
+                <div class="faction">
+                    <span class="faction-icon">🏴‍☠️</span>
+                    <h3>القراصنة</h3>
+                    <p>حكام البحار الذين يسيطرون على الطرق البحرية. يمكنهم عقد صفقات مع الممالك مقابل المرور الآمن في مياههم.</p>
+                </div>
+                
+                <!-- التجار في الأسفل -->
+                <div class="faction" style="grid-column: 1 / -1; max-width: 400px; margin: 2rem auto 0 auto;">
+                    <span class="faction-icon">💰</span>
+                    <h3>التجار</h3>
+                    <p>جامعو الموارد والأشياء النادرة الذين ينتشرون في كل مكان. يبيعون بضائعهم في السوق الكبرى ويتحكمون في الاقتصاد.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- الحياة في العالم -->
+        <section class="world-life">
+            <h2>🌾 الحياة في عالم كاكين</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>🧠 الذكاء أساس البقاء</h3>
+                    <p>النجاة تعتمد على ذكائك وقدرتك على التخطيط والتكيف مع التحديات المستمرة.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>🌱 الزراعة مصدر القوة</h3>
+                    <p>المحاصيل هي عماد الاقتصاد، والسيطرة على الموارد الزراعية تعني السيطرة على القوة.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>🏪 السوق الكبرى</h3>
+                    <p>مركز التجارة حيث يتحكم التجار في أسعار المحاصيل والموارد حسب العرض والطلب.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>🛡️ احم نفسك</h3>
+                    <p>لا توجد حماية من الإدارة - عليك بناء دفاعاتك الخاصة وإخفاء كنوزك بذكاء.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- معلومات السيرفر -->
+        <section class="story-section" style="background: linear-gradient(135deg, rgba(255, 221, 0, 0.1), rgba(255, 136, 0, 0.1)); border-color: #ffdd00;">
+            <h2 style="text-align: center; color: #ff8800;">🎮 معلومات الاتصال بالسيرفر</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div style="background: rgba(255, 136, 0, 0.1); border: 2px solid #ff8800; border-radius: 10px; padding: 1.5rem; text-align: center;">
+                    <h3 style="color: #ffdd00; margin-bottom: 1rem;">📡 عنوان IP</h3>
+                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-family: monospace; font-size: 1.2rem; color: #fff; border: 1px solid #ff8800;">
+                        <span id="server-ip">play.kakin.net</span>
+                    </div>
+                    <button class="btn" onclick="copyIP()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">📋 نسخ IP</button>
+                </div>
+                
+                <div style="background: rgba(255, 136, 0, 0.1); border: 2px solid #ff8800; border-radius: 10px; padding: 1.5rem; text-align: center;">
+                    <h3 style="color: #ffdd00; margin-bottom: 1rem;">🔌 البورت</h3>
+                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-family: monospace; font-size: 1.2rem; color: #fff; border: 1px solid #ff8800;">
+                        <span id="server-port">25565</span>
+                    </div>
+                    <button class="btn" onclick="copyPort()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">📋 نسخ البورت</button>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: rgba(255, 68, 68, 0.1); border-radius: 10px; border: 1px solid #ff4444;">
+                <p style="margin: 0; color: #ffdd00; font-weight: bold;">💎 يدعم الجافا المكركة والأصلية</p>
+                <p style="margin: 0.5rem 0 0 0; color: #fff;">الإصدار المدعوم: 1.21.9.x</p>
+            </div>
+        </section>
+
+        <!-- أزرار التفاعل -->
+        <div class="action-buttons">
+            <button class="btn" onclick="joinServer()">🚀 انضم للديسكورد</button>
+            <button class="btn" onclick="showRules()">📜 قوانين العالم</button>
+            <button class="btn" onclick="showGuide()">🗺️ دليل المبتدئين</button>
+        </div>
+
+        <!-- معلومات إضافية -->
+        <section class="story-section">
+            <h2>⚠️ تحذير مهم</h2>
+            <p>
+                هذا العالم لا يرحم الضعفاء! كن مستعداً لمواجهة التحديات والأعداء في كل لحظة. 
+                اختر فئتك بحكمة، وابني تحالفاتك بذكاء، واحم مواردك بقوة.
+            </p>
+            <p style="text-align: center; font-size: 1.3rem; color: #ffdd00; font-weight: bold;">
+                🌟 مرحباً بك في عالم كاكين - حيث الأقوى فقط هو من يبقى! 🌟
+            </p>
+        </section>
+    </div>
+
+    <script>
+        // إنشاء النجوم
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // حجم عشوائي للنجوم
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                
+                // موقع عشوائي
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                // تأخير عشوائي للرسوم المتحركة
+                star.style.animationDelay = Math.random() * 3 + 's';
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // وظائف الأزرار
+        function joinServer() {
+            window.open('https://discord.gg/9Bzm5FXy8m', '_blank', 'noopener,noreferrer');
+        }
+
+        // وظائف النسخ
+        function copyIP() {
+            const ip = document.getElementById('server-ip').textContent;
+            navigator.clipboard.writeText(ip).then(function() {
+                alert('✅ تم نسخ عنوان IP: ' + ip);
+            }).catch(function() {
+                // طريقة احتياطية للنسخ
+                const textArea = document.createElement('textarea');
+                textArea.value = ip;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('✅ تم نسخ عنوان IP: ' + ip);
+            });
+        }
+
+        function copyPort() {
+            const port = document.getElementById('server-port').textContent;
+            navigator.clipboard.writeText(port).then(function() {
+                alert('✅ تم نسخ البورت: ' + port);
+            }).catch(function() {
+                // طريقة احتياطية للنسخ
+                const textArea = document.createElement('textarea');
+                textArea.value = port;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('✅ تم نسخ البورت: ' + port);
+            });
+        }
+
+        function showRules() {
+            alert('📜 قوانين عالم كاكين:\n\n• لا توجد حماية من الإدارة\n• اعتمد على ذكائك وقوتك\n• احم مواردك وكنوزك\n• ابني تحالفات قوية\n• الزراعة أساس الاقتصاد\n• احترم قوانين كل فئة\n• ممنوع الغش واستخدام الهاك ( بان نهائي )\n• ممنوع السب والشتم (بان لفتره ما بين 2 يوم حقيقي او 3 )');
+        }
+
+        function showGuide() {
+            alert('🗺️ دليل المبتدئين:\n\n1. اختر فئتك بعناية\n2. ابدأ بجمع الموارد الأساسية\n3. ابني قاعدة آمنة\n4. كون تحالفات مع لاعبين آخرين\n5. تعلم أسرار التجارة\n6. طور استراتيجيتك باستمرار');
+        }
+
+        // تشغيل إنشاء النجوم عند تحميل الصفحة
+        window.addEventListener('load', createStars);
+
+        // إضافة تأثيرات تفاعلية للفئات
+        document.querySelectorAll('.faction').forEach(faction => {
+            faction.addEventListener('click', function() {
+                const factionName = this.querySelector('h3').textContent;
+                alert(`⚔️ لقد اخترت فئة: ${factionName}\n\nهل أنت مستعد لبدء رحلتك في عالم كاكين؟`);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a6d54b5498adb5',t:'MTc1OTc3MTI2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
