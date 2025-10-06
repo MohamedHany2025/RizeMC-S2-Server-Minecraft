@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="logo2.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📋 معلومات سيرفر كاكين - README</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* خلفية النجوم */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        .star:nth-child(odd) {
+            animation-delay: 1s;
+        }
+
+        .star:nth-child(3n) {
+            animation-delay: 2s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* الهيدر */
+        .header {
+            background: linear-gradient(45deg, #ff4444, #ff8800, #ffdd00);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #fff700, #ffd700);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            animation: golden-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes golden-glow {
+            0% { 
+                background-position: 0% 50%;
+                filter: brightness(1.2);
+            }
+            100% { 
+                background-position: 100% 50%;
+                filter: brightness(1.8);
+            }
+        }
+
+        /* المحتوى الرئيسي */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 221, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        #content {
+            direction: ltr;
+            text-align: left;
+        }
+
+        /* تنسيق عناصر Markdown */
+        #content h1 {
+            color: #ffdd00;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            border-bottom: 3px solid #ff8800;
+            padding-bottom: 1rem;
+        }
+
+        #content h2 {
+            color: #ff8800;
+            font-size: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            border-left: 5px solid #ff4444;
+            padding-left: 1rem;
+        }
+
+        #content h3 {
+            color: #ffaa44;
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        #content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        #content ul, #content ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        #content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* تنسيق الجداول */
+        #content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(255, 136, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.2);
+        }
+
+        #content th {
+            background: linear-gradient(45deg, #ff4444, #ff8800);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        #content td {
+            padding: 0.8rem;
+            border-bottom: 1px solid rgba(255, 136, 0, 0.3);
+            text-align: center;
+        }
+
+        #content tr:hover {
+            background: rgba(255, 221, 0, 0.1);
+        }
+
+        /* تنسيق الكود */
+        #content code {
+            background: rgba(0, 0, 0, 0.4);
+            color: #ffdd00;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #ff8800;
+        }
+
+        #content pre {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1.5rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            border: 2px solid #ff8800;
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.2);
+        }
+
+        #content pre code {
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        /* تنسيق الروابط */
+        #content a {
+            color: #ffdd00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        #content a:hover {
+            color: #fff700;
+            border-bottom-color: #ff8800;
+            text-shadow: 0 0 10px rgba(255, 221, 0, 0.5);
+        }
+
+        /* تنسيق الاقتباسات */
+        #content blockquote {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 5px solid #ff4444;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.1);
+        }
+
+        /* تنسيق القوائم */
+        #content ul li::marker {
+            color: #ff8800;
+        }
+
+        #content ol li::marker {
+            color: #ff8800;
+            font-weight: bold;
+        }
+
+        /* تنسيق الصور */
+        #content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid #ff8800;
+            margin: 1rem 0;
+        }
+
+        /* شارات GitHub */
+        #content img[src*="shields.io"] {
+            border: none;
+            box-shadow: none;
+            margin: 0.2rem;
+            display: inline-block;
+        }
+
+        /* تنسيق div المحاذاة */
+        #content div[align="center"] {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        /* رسالة التحميل */
+        .loading {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #ffdd00;
+            padding: 3rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        /* رسالة الخطأ */
+        .error {
+            background: rgba(255, 68, 68, 0.2);
+            border: 2px solid #ff4444;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            color: #ffdddd;
+            margin: 2rem 0;
+        }
+
+        /* زر العودة */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ff4444, #ff8800);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 68, 68, 0.5);
+            background: linear-gradient(45deg, #ff6666, #ffaa00);
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            #content h1 {
+                font-size: 2rem;
+            }
+            
+            #content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .back-button {
+                top: 10px;
+                right: 10px;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- خلفية النجوم -->
+    <div class="stars" id="stars"></div>
+
+    <!-- زر العودة -->
+    <button class="back-button" onclick="goBack()">🔙 العودة للصفحة الرئيسية</button>
+
+    <!-- الهيدر -->
+    <header class="header">
+        <h1>📋 معلومات سيرفر كاكين</h1>
+        <p>ملف README.md الكامل مع جميع التفاصيل</p>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+        <div id="content" class="loading">
+            🔄 جارٍ تحميل ملف README.md...
+        </div>
+    </div>
+
+    <script>
+        // إنشاء النجوم
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // تحميل ملف README.md
+        function loadReadme() {
+            fetch("README.md")
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(`HTTP error! status: ${res.status}`);
+                    }
+                    return res.text();
+                })
+                .then(text => {
+                    // تحويل Markdown إلى HTML
+                    const htmlContent = marked.parse(text);
+                    document.getElementById("content").innerHTML = htmlContent;
+                    
+                    // إضافة target="_blank" للروابط الخارجية
+                    const links = document.querySelectorAll('#content a[href^="http"]');
+                    links.forEach(link => {
+                        link.setAttribute('target', '_blank');
+                        link.setAttribute('rel', 'noopener noreferrer');
+                    });
+                })
+                .catch(error => {
+                    console.error('خطأ في تحميل ملف README:', error);
+                    document.getElementById("content").innerHTML = `
+                        <div class="error">
+                            <h2>❌ خطأ في تحميل الملف</h2>
+                            <p>لم يتم العثور على ملف README.md أو حدث خطأ في التحميل.</p>
+                            <p><strong>تفاصيل الخطأ:</strong> ${error.message}</p>
+                            <p>تأكد من وجود ملف README.md في نفس مجلد هذه الصفحة.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        // العودة للصفحة الرئيسية
+        function goBack() {
+            if (document.referrer) {
+                window.history.back();
+            } else {
+                // إذا لم يكن هناك صفحة سابقة، انتقل للصفحة الرئيسية
+                window.location.href = 'index.html';
+            }
+        }
+
+        // تشغيل الوظائف عند تحميل الصفحة
+        window.addEventListener('load', () => {
+            createStars();
+            loadReadme();
+        });
+
+        // إضافة اختصار لوحة المفاتيح للعودة
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                goBack();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a6f9e2c0c8e183',t:'MTc1OTc3Mjc2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
