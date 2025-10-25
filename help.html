@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="logo2.jpg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيرفر رايز ام سي - عالم ما بعد الحرب العظيمة</title>
+    <title>سيرفر كاكين - عالم ما بعد الحرب العظيمة</title>
     <style>
         body {
             box-sizing: border-box;
@@ -77,63 +77,11 @@
         .header h1 {
             font-size: 3rem;
             margin: 0;
-            background: linear-gradient(45deg, #ffd700, #ffed4e, #fff700, #ffd700);
-            background-size: 200% 200%;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #fff, #ffdd00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 
-                0 0 20px rgba(255, 215, 0, 0.8),
-                0 0 40px rgba(255, 215, 0, 0.6),
-                0 0 60px rgba(255, 215, 0, 0.4),
-                2px 2px 8px rgba(0,0,0,0.8);
-            animation: luxury-shake 0.8s ease-in-out infinite, golden-glow 2s ease-in-out infinite alternate;
-            position: relative;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
-        }
-
-        @keyframes luxury-shake {
-            0%, 100% { 
-                transform: translateX(0) translateY(0) rotate(0deg);
-            }
-            10% { 
-                transform: translateX(-1px) translateY(-1px) rotate(-0.5deg);
-            }
-            20% { 
-                transform: translateX(1px) translateY(1px) rotate(0.5deg);
-            }
-            30% { 
-                transform: translateX(-1px) translateY(1px) rotate(-0.3deg);
-            }
-            40% { 
-                transform: translateX(1px) translateY(-1px) rotate(0.3deg);
-            }
-            50% { 
-                transform: translateX(-0.5px) translateY(-0.5px) rotate(-0.2deg);
-            }
-            60% { 
-                transform: translateX(0.5px) translateY(0.5px) rotate(0.2deg);
-            }
-            70% { 
-                transform: translateX(-0.5px) translateY(0.5px) rotate(-0.1deg);
-            }
-            80% { 
-                transform: translateX(0.5px) translateY(-0.5px) rotate(0.1deg);
-            }
-            90% { 
-                transform: translateX(-0.2px) translateY(-0.2px) rotate(-0.05deg);
-            }
-        }
-
-        @keyframes golden-glow {
-            0% { 
-                background-position: 0% 50%;
-                filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
-            }
-            100% { 
-                background-position: 100% 50%;
-                filter: brightness(1.8) drop-shadow(0 0 20px rgba(255, 215, 0, 0.9));
-            }
         }
 
         .header p {
@@ -361,10 +309,10 @@
                 <circle cx="480" cy="100" r="7" fill="#666666" opacity="0.3"/>
                 
                 <!-- النص التوضيحي -->
-                <text x="400" y="50" text-anchor="middle" fill="#ffdd00" font-size="16" font-weight="bold">عالم رايز ام سي المدمر</text>
+                <text x="400" y="50" text-anchor="middle" fill="#ffdd00" font-size="16" font-weight="bold">عالم كاكين المدمر</text>
             </svg>
         </div>
-        <h1>🏰 سيرفر رايز ام سي 🏰</h1>
+        <h1>🏰 سيرفر كاكين 🏰</h1>
         <div style="background: rgba(255, 221, 0, 0.2); border: 2px solid #ffdd00; border-radius: 10px; padding: 1rem; margin: 1rem 0; display: inline-block;">
             <h2 style="margin: 0; color: #ffdd00; font-size: 1.5rem;">⭐ الموسم الثاني ⭐</h2>
             <p style="margin: 0.5rem 0 0 0; color: #fff;">جافا مكركة وأصلية - تجربة محسنة بالكامل!</p>
@@ -421,7 +369,7 @@
 
         <!-- الحياة في العالم -->
         <section class="world-life">
-            <h2>🌾 الحياة في عالم رايز ام سي</h2>
+            <h2>🌾 الحياة في عالم كاكين</h2>
             <div class="features">
                 <div class="feature">
                     <h3>🧠 الذكاء أساس البقاء</h3>
@@ -452,7 +400,7 @@
                 <div style="background: rgba(255, 136, 0, 0.1); border: 2px solid #ff8800; border-radius: 10px; padding: 1.5rem; text-align: center;">
                     <h3 style="color: #ffdd00; margin-bottom: 1rem;">📡 عنوان IP</h3>
                     <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-family: monospace; font-size: 1.2rem; color: #fff; border: 1px solid #ff8800;">
-                        <span id="server-ip">RizeMC_S2.aternos.me</span>
+                        <span id="server-ip">play.kakin.net</span>
                     </div>
                     <button class="btn" onclick="copyIP()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">📋 نسخ IP</button>
                 </div>
@@ -460,7 +408,7 @@
                 <div style="background: rgba(255, 136, 0, 0.1); border: 2px solid #ff8800; border-radius: 10px; padding: 1.5rem; text-align: center;">
                     <h3 style="color: #ffdd00; margin-bottom: 1rem;">🔌 البورت</h3>
                     <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-family: monospace; font-size: 1.2rem; color: #fff; border: 1px solid #ff8800;">
-                        <span id="server-port">لا يوجد</span>
+                        <span id="server-port">25565</span>
                     </div>
                     <button class="btn" onclick="copyPort()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">📋 نسخ البورت</button>
                 </div>
@@ -477,7 +425,6 @@
             <button class="btn" onclick="joinServer()">🚀 انضم للديسكورد</button>
             <button class="btn" onclick="showRules()">📜 قوانين العالم</button>
             <button class="btn" onclick="showGuide()">🗺️ دليل المبتدئين</button>
-            <button class="btn" onclick="showReadme()">📋 معلومات السيرفر</button>
         </div>
 
         <!-- معلومات إضافية -->
@@ -488,7 +435,7 @@
                 اختر فئتك بحكمة، وابني تحالفاتك بذكاء، واحم مواردك بقوة.
             </p>
             <p style="text-align: center; font-size: 1.3rem; color: #ffdd00; font-weight: bold;">
-                🌟 مرحباً بك في عالم رايز ام سي - حيث الأقوى فقط هو من يبقى! 🌟
+                🌟 مرحباً بك في عالم كاكين - حيث الأقوى فقط هو من يبقى! 🌟
             </p>
         </section>
     </div>
@@ -521,7 +468,7 @@
 
         // وظائف الأزرار
         function joinServer() {
-            window.open('https://discord.gg/FKNrEaF9Zv', '_blank', 'noopener,noreferrer');
+            window.open('https://discord.gg/9Bzm5FXy8m', '_blank', 'noopener,noreferrer');
         }
 
         // وظائف النسخ
@@ -565,10 +512,6 @@
             alert('🗺️ دليل المبتدئين:\n\n1. اختر فئتك بعناية\n2. ابدأ بجمع الموارد الأساسية\n3. ابني قاعدة آمنة\n4. كون تحالفات مع لاعبين آخرين\n5. تعلم أسرار التجارة\n6. طور استراتيجيتك باستمرار');
         }
 
-        function showReadme() {
-            window.open("README.html")
-        }
-
         // تشغيل إنشاء النجوم عند تحميل الصفحة
         window.addEventListener('load', createStars);
 
@@ -580,5 +523,5 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a6e732b6e4e183',t:'MTc1OTc3MTk5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a6cc7a2659adb5',t:'MTc1OTc3MDkwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
