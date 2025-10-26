@@ -66,7 +66,24 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-            animation: golden-glow 2s ease-in-out infinite alternate;
+            animation: luxury-shake 0.8s ease-in-out infinite, golden-glow 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+        }
+
+        /* golden-title used by header across pages */
+        .golden-title {
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #fff700, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: luxury-shake 0.8s ease-in-out infinite, golden-glow 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+        }
+
+        @keyframes luxury-shake {
+            0%,100%{transform:translateX(0) translateY(0) rotate(0deg)}
+            10%{transform:translateX(-1px) translateY(-1px) rotate(-0.5deg)}
+            20%{transform:translateX(1px) translateY(1px) rotate(0.5deg)}
         }
 
         @keyframes golden-glow {
@@ -78,6 +95,19 @@
                 background-position: 100% 50%;
                 filter: brightness(1.8);
             }
+        }
+
+        @keyframes luxury-shake {
+            0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+            10% { transform: translateX(-1px) translateY(-1px) rotate(-0.5deg); }
+            20% { transform: translateX(1px) translateY(1px) rotate(0.5deg); }
+            30% { transform: translateX(-1px) translateY(1px) rotate(-0.3deg); }
+            40% { transform: translateX(1px) translateY(-1px) rotate(0.3deg); }
+            50% { transform: translateX(-0.5px) translateY(-0.5px) rotate(-0.2deg); }
+            60% { transform: translateX(0.5px) translateY(0.5px) rotate(0.2deg); }
+            70% { transform: translateX(-0.5px) translateY(0.5px) rotate(-0.1deg); }
+            80% { transform: translateX(0.5px) translateY(-0.5px) rotate(0.1deg); }
+            90% { transform: translateX(-0.2px) translateY(-0.2px) rotate(-0.05deg); }
         }
 
         /* المحتوى الرئيسي */
@@ -329,18 +359,72 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* قائمة التنقل */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 221, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 221, 0, 0.1);
+            border-color: #ffdd00;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 221, 0, 0.2);
+            border-color: #ffdd00;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- خلفية النجوم -->
     <div class="stars" id="stars"></div>
 
+    <!-- قائمة التنقل -->
+    <nav class="nav-menu">
+        <a href="index.html" class="nav-link">🏠 الرئيسية</a>
+        <a href="help.html" class="nav-link">❓ المساعدة</a>
+        <a href="index_new.html" class="nav-link">📋 معلومات السيرفر</a>
+        <a href="README.html" class="nav-link active">📋 README / الشرح المبسط للسيرفر</a>
+    </nav>
+
     <!-- زر العودة -->
     <button class="back-button" onclick="goBack()">🔙 العودة للصفحة الرئيسية</button>
 
     <!-- الهيدر -->
     <header class="header">
-        <h1>📋 معلومات سيرفر كاكين</h1>
+        <h1 class="golden-title">📋 معلومات سيرفر RizeMC</h1>
         <p>ملف README.md الكامل مع جميع التفاصيل</p>
     </header>
 
@@ -405,8 +489,7 @@
                     `;
                 });
         }
-
-        // العودة للصفحة الرئيسية
+ // العودة للصفحة الرئيسية
         function goBack() {
             if (document.referrer) {
                 window.history.back();
@@ -416,10 +499,45 @@
             }
         }
 
+        // ===== Music player popup controller (shared) =====
+        function toggleMusic(e){
+            if(e) e.preventDefault();
+            try{
+                const existing = window.open('', 'rize_music_player');
+                if(existing && !existing.closed){
+                    existing.postMessage({cmd:'toggle'}, '*');
+                    const playing = localStorage.getItem('rize_music_playing') === 'true';
+                    localStorage.setItem('rize_music_playing', (!playing).toString());
+                    updateMusicButton();
+                    return;
+                }
+            }catch(err){}
+
+            const win = window.open('audio_player.html', 'rize_music_player', 'width=420,height=140');
+            function onReady(ev){
+                if(ev.data && ev.data.playerReady){
+                    window.removeEventListener('message', onReady);
+                    try{ const w = window.open('', 'rize_music_player'); if(w && !w.closed){ w.postMessage({cmd:'play'}, '*'); localStorage.setItem('rize_music_playing','true'); updateMusicButton(); }}catch(e){}
+                }
+            }
+            window.addEventListener('message', onReady);
+            setTimeout(()=>{
+                try{ const w2 = window.open('', 'rize_music_player'); if(w2 && !w2.closed){ w2.postMessage({cmd:'play'}, '*'); localStorage.setItem('rize_music_playing','true'); updateMusicButton(); window.removeEventListener('message', onReady); }}catch(e){}
+            }, 800);
+        }
+
+        function updateMusicButton(){
+            const btn = document.getElementById('music-toggle');
+            if(!btn) return;
+            const playing = localStorage.getItem('rize_music_playing') === 'true';
+            btn.textContent = playing ? '⏸️ إيقاف الموسيقى' : '🔊 تشغيل الموسيقى';
+        }
+
         // تشغيل الوظائف عند تحميل الصفحة
         window.addEventListener('load', () => {
             createStars();
             loadReadme();
+            updateMusicButton();
         });
 
         // إضافة اختصار لوحة المفاتيح للعودة
@@ -431,3 +549,84 @@
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a6f9e2c0c8e183',t:'MTc1OTc3Mjc2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
+<!-- Background music controller (reads data/info.json -> music.file). Press 'M' to toggle music -->
+<script>
+(function(){
+    const MUSIC_KEY = 'bgMusicPaused';
+    let audioEl = null;
+
+    function createControl(){
+        if(document.getElementById('music-toggle')) return;
+        const ctrl = document.createElement('button');
+        ctrl.id = 'music-toggle';
+        ctrl.title = 'M لتشغيل/إيقاف الموسيقى';
+        ctrl.style.position = 'fixed';
+        ctrl.style.left = '10px';
+        ctrl.style.bottom = '10px';
+        ctrl.style.zIndex = 9999;
+        ctrl.style.background = 'rgba(0,0,0,0.5)';
+        ctrl.style.color = '#fff';
+        ctrl.style.border = 'none';
+        ctrl.style.padding = '0.6rem 0.8rem';
+        ctrl.style.borderRadius = '8px';
+        ctrl.style.cursor = 'pointer';
+        ctrl.addEventListener('click', ()=>{
+            if(!audioEl) return;
+            if(audioEl.paused){ audioEl.play(); localStorage.setItem(MUSIC_KEY,'false'); ctrl.textContent='🔊'; }
+            else { audioEl.pause(); localStorage.setItem(MUSIC_KEY,'true'); ctrl.textContent='🔇'; }
+        });
+        document.body.appendChild(ctrl);
+        return ctrl;
+    }
+
+    function showPlayHint(){
+        if(document.getElementById('music-hint')) return;
+        const hint = document.createElement('div');
+        hint.id = 'music-hint';
+        hint.style.position = 'fixed';
+        hint.style.left = '50%';
+        hint.style.top = '92%';
+        hint.style.transform = 'translate(-50%, -50%)';
+        hint.style.zIndex = 10000;
+        hint.innerHTML = '<button id="music-start-btn" style="padding:0.6rem 1rem;border-radius:8px;border:none;background:#ff4444;color:#fff;">تشغيل الموسيقى</button>';
+        document.body.appendChild(hint);
+        document.getElementById('music-start-btn').addEventListener('click', ()=>{
+            if(audioEl){ audioEl.play().then(()=>{ hint.remove(); localStorage.setItem(MUSIC_KEY,'false'); const c = document.getElementById('music-toggle'); if(c) c.textContent='🔊'; }); }
+        });
+    }
+
+    function initMusic(){
+        fetch('data/info.json').then(r=>r.json()).then(cfg=>{
+            const file = cfg && cfg.music && cfg.music.file;
+            const loop = cfg && cfg.music && cfg.music.loop;
+            if(!file) return;
+            audioEl = document.getElementById('bg-music') || new Audio(file);
+            audioEl.id = 'bg-music';
+            audioEl.loop = loop === undefined ? true : !!loop;
+            audioEl.preload = 'auto';
+            audioEl.volume = 0.5;
+            audioEl.crossOrigin = 'anonymous';
+            if(!document.getElementById('bg-music')) document.body.appendChild(audioEl);
+
+            const ctrl = createControl();
+
+            const paused = localStorage.getItem(MUSIC_KEY);
+            if(paused === 'true'){
+                audioEl.pause(); if(ctrl) ctrl.textContent='🔇';
+            } else {
+                audioEl.play().then(()=>{ if(ctrl) ctrl.textContent='🔊'; }).catch(()=>{ if(ctrl) ctrl.textContent='🔇'; showPlayHint(); });
+            }
+
+            window.addEventListener('keydown', (e)=>{
+                if(e.key && e.key.toLowerCase() === 'm'){
+                    if(audioEl.paused){ audioEl.play(); localStorage.setItem(MUSIC_KEY,'false'); if(ctrl) ctrl.textContent='🔊'; }
+                    else { audioEl.pause(); localStorage.setItem(MUSIC_KEY,'true'); if(ctrl) ctrl.textContent='🔇'; }
+                }
+            });
+        }).catch(err=>{ console.error('Failed to load music config', err); });
+    }
+
+    document.addEventListener('DOMContentLoaded', initMusic);
+})();
+</script>

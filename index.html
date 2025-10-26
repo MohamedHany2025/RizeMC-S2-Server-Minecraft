@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="logo2.jpg" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيرفر رايز ام سي - عالم ما بعد الحرب العظيمة</title>
+    <meta property="og:title" content="سيرفر RizeMC - الموسم الثاني">
+    <meta property="og:description" content="عالم ما بعد الحرب العظيمة - اختر مصيرك واكتب تاريخك">
+    <meta property="og:image" content="assest/IMG-20251022-WA0000.jpg">
+    <meta name="theme-color" content="#ff4444">
+    <title>سيرفر RizeMC - الموسم الثاني</title>
+    
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="assets/common.css">
+    <link rel="stylesheet" href="assets/intro.css">
+    
     <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+        
         body {
             box-sizing: border-box;
             margin: 0;
@@ -15,6 +26,13 @@
             color: white;
             overflow-x: hidden;
             position: relative;
+            
+        }
+
+        .link-card i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffdd00;
         }
 
         /* خلفية النجوم */
@@ -294,6 +312,63 @@
         .btn:active {
             transform: translateY(-1px);
         }
+        .abtn{
+            color: #ffdd00;
+            text-decoration: none;
+        }
+        .abtn:hover{
+            text-decoration: underline;
+            text-decoration: #ff8800;
+            transition: 180ms;
+        }
+        .abtn:active{
+            color: #ff8800;
+
+
+        }
+        /* قائمة التنقل */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 221, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 221, 0, 0.1);
+            border-color: #ffdd00;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 221, 0, 0.2);
+            border-color: #ffdd00;
+        }
+
+        /* golden-title style (shared) */
+        .golden-title {
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #fff700, #ffd700);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: luxury-shake 0.8s ease-in-out infinite, golden-glow 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+        }
 
         /* تصميم متجاوب */
         @media (max-width: 768px) {
@@ -313,58 +388,106 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
         }
     </style>
-</head>
-<body>
+        <style>
+            /* قائمة التنقل */
+            .nav-menu {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.05);
+                border-bottom: 1px solid rgba(255, 221, 0, 0.3);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-link {
+                color: #fff;
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+                border: 1px solid transparent;
+            }
+
+            .nav-link:hover {
+                background: rgba(255, 221, 0, 0.1);
+                border-color: #ffdd00;
+                transform: translateY(-2px);
+            }
+
+            .nav-link.active {
+                background: rgba(255, 221, 0, 0.2);
+                border-color: #ffdd00;
+            }
+
+            @media (max-width: 768px) {
+                .nav-menu {
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                }
+
+                .nav-link {
+                    font-size: 0.9rem;
+                    padding: 0.4rem 0.8rem;
+                }
+            }
+        </style>
+    </head>
+<body class="index-page">
     <!-- خلفية النجوم -->
     <div class="stars" id="stars"></div>
+
+        <!-- قائمة التنقل -->
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link active">🏠 الرئيسية</a>
+            <a href="help.html" class="nav-link">❓ المساعدة</a>
+            <a href="index_new.html" class="nav-link">📋 معلومات السيرفر</a>
+            <a href="README.html" class="nav-link">📋 README / الشرح المبسط للسيرفر</a>
+        </nav>
+
+    <!-- زر الفيديو التشويقي -->
+    <div style="text-align: center; padding: 2rem; background: linear-gradient(45deg, rgba(255, 68, 68, 0.1), rgba(255, 136, 0, 0.1)); margin: 1rem auto; max-width: 800px; border-radius: 15px; box-shadow: 0 0 30px rgba(255, 68, 68, 0.2);">
+        <h2 style="color: #ff4444; margin-bottom: 1rem; font-size: 2rem; text-shadow: 0 0 10px rgba(255, 68, 68, 0.3);">🎥 شاهد الفيديو التشويقي للسيرفر!</h2>
+        <p style="color: white; margin-bottom: 2rem;">تعرف على عالم RizeMC في دقيقتين</p>
+        <a href="https://www.youtube.com/watch?v=m4KKTjUilDY" target="_blank" style="
+            display: inline-block;
+            background: linear-gradient(45deg, #ff0000, #ff4444);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+            margin-bottom: 1rem;
+        " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.4)'" 
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255, 0, 0, 0.3)'">
+            <i class="fab fa-youtube" style="margin-right: 0.5rem;"></i>
+            شاهد الفيديو التشويقي
+        </a>
+    </div>
 
     <!-- الهيدر -->
     <header class="header">
         <div class="header-image">
-            <img src="logo1.jpg" alt="عالم كاكين المدمر بعد الحرب العظيمة" onerror="this.style.display='none'; document.getElementById('fallback-svg').style.display='block';">
-            <!-- SVG احتياطي في حالة عدم وجود الصورة -->
-            <svg id="fallback-svg" style="display: none;" width="100%" height="200" viewBox="0 0 800 200">
-                <!-- خلفية السماء الحمراء -->
-                <defs>
-                    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1" />
-                        <stop offset="50%" style="stop-color:#cc3333;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#331111;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <rect width="800" height="200" fill="url(#skyGradient)"/>
-                
-                <!-- القلاع المدمرة -->
-                <polygon points="100,150 120,120 140,130 160,110 180,140 200,150 200,200 100,200" fill="#2a2a2a" opacity="0.8"/>
-                <polygon points="250,160 270,130 290,140 310,120 330,150 350,160 350,200 250,200" fill="#333333" opacity="0.7"/>
-                <polygon points="400,140 420,110 440,120 460,100 480,130 500,140 500,200 400,200" fill="#2a2a2a" opacity="0.8"/>
-                <polygon points="550,155 570,125 590,135 610,115 630,145 650,155 650,200 550,200" fill="#333333" opacity="0.7"/>
-                
-                <!-- الشخصيات الصغيرة -->
-                <circle cx="150" cy="180" r="3" fill="#444444"/>
-                <rect x="148" y="183" width="4" height="8" fill="#444444"/>
-                
-                <circle cx="300" cy="185" r="3" fill="#444444"/>
-                <rect x="298" y="188" width="4" height="8" fill="#444444"/>
-                
-                <circle cx="450" cy="175" r="3" fill="#444444"/>
-                <rect x="448" y="178" width="4" height="8" fill="#444444"/>
-                
-                <circle cx="600" cy="180" r="3" fill="#444444"/>
-                <rect x="598" y="183" width="4" height="8" fill="#444444"/>
-                
-                <!-- الدخان والغبار -->
-                <circle cx="130" cy="120" r="8" fill="#666666" opacity="0.3"/>
-                <circle cx="320" cy="110" r="6" fill="#666666" opacity="0.3"/>
-                <circle cx="480" cy="100" r="7" fill="#666666" opacity="0.3"/>
-                
-                <!-- النص التوضيحي -->
-                <text x="400" y="50" text-anchor="middle" fill="#ffdd00" font-size="16" font-weight="bold">عالم رايز ام سي المدمر</text>
-            </svg>
+            <img src="assest/IMG-20251022-WA0000.jpg" alt="عالم كاكين المدمر بعد الحرب العظيمة" onerror="this.style.display='none'; document.getElementById('fallback-svg').style.display='block';">
         </div>
-        <h1>🏰 سيرفر رايز ام سي 🏰</h1>
+    <h1 class="golden-title">🏰 سيرفر RizeMC 🏰</h1>
         <div style="background: rgba(255, 221, 0, 0.2); border: 2px solid #ffdd00; border-radius: 10px; padding: 1rem; margin: 1rem 0; display: inline-block;">
             <h2 style="margin: 0; color: #ffdd00; font-size: 1.5rem;">⭐ الموسم الثاني ⭐</h2>
             <p style="margin: 0.5rem 0 0 0; color: #fff;">جافا مكركة وأصلية - تجربة محسنة بالكامل!</p>
@@ -421,7 +544,7 @@
 
         <!-- الحياة في العالم -->
         <section class="world-life">
-            <h2>🌾 الحياة في عالم رايز ام سي</h2>
+            <h2>🌾 الحياة في عالم RizeMC</h2>
             <div class="features">
                 <div class="feature">
                     <h3>🧠 الذكاء أساس البقاء</h3>
@@ -488,10 +611,21 @@
                 اختر فئتك بحكمة، وابني تحالفاتك بذكاء، واحم مواردك بقوة.
             </p>
             <p style="text-align: center; font-size: 1.3rem; color: #ffdd00; font-weight: bold;">
-                🌟 مرحباً بك في عالم رايز ام سي - حيث الأقوى فقط هو من يبقى! 🌟
+                🌟 مرحباً بك في عالم RizeMC - حيث الأقوى فقط هو من يبقى! 🌟
             </p>
         </section>
+        <!-- الحقوق -->
+        <footer style="text-align: center; padding: 1rem; margin-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2); color: #aaa; font-size: 0.9rem;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;max-width:1100px;margin:0 auto;">
+                <div>جميع الحقوق محفوظة © 2025 <a href="https://www.facebook.com/xspeedo.gaming.2025#" class="abtn">Mohamed Hany</a></div>
+            </div>
+        </footer>
     </div>
+
+    <!-- Background music and intro video controllers -->
+    <script src="assets/intro.js"></script>
+    <script src="assets/common.js"></script>
+    <!-- update popup disabled to avoid blocking scripts during local testing -->
 
     <script>
         // إنشاء النجوم
@@ -566,7 +700,7 @@
         }
 
         function showReadme() {
-            window.open("README.html")
+              window.location.href = "README.html";
         }
 
         // تشغيل إنشاء النجوم عند تحميل الصفحة
@@ -580,5 +714,6 @@
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a6e732b6e4e183',t:'MTc1OTc3MTk5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</script>
+</body>
 </html>

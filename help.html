@@ -17,6 +17,71 @@
             position: relative;
         }
 
+            /* قائمة التنقل */
+            .nav-menu {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.05);
+                border-bottom: 1px solid rgba(255, 221, 0, 0.3);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-link {
+                color: #fff;
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+                border: 1px solid transparent;
+            }
+
+            .nav-link:hover {
+                background: rgba(255, 221, 0, 0.1);
+                border-color: #ffdd00;
+                transform: translateY(-2px);
+            }
+
+            .nav-link.active {
+                background: rgba(255, 221, 0, 0.2);
+                border-color: #ffdd00;
+            }
+
+            /* golden title (reused on all pages) */
+            .golden-title {
+                background: linear-gradient(45deg, #ffd700, #ffed4e, #fff700, #ffd700);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: luxury-shake 0.8s ease-in-out infinite, golden-glow 2s ease-in-out infinite alternate;
+                filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+            }
+
+            @keyframes luxury-shake {
+                0%,100%{transform:translateX(0) translateY(0) rotate(0deg)}
+                10%{transform:translateX(-1px) translateY(-1px) rotate(-0.5deg)}
+                20%{transform:translateX(1px) translateY(1px) rotate(0.5deg)}
+            }
+
+            @keyframes golden-glow {
+                0%{filter:brightness(1.2) drop-shadow(0 0 10px rgba(255,215,0,0.7))}
+                100%{filter:brightness(1.8) drop-shadow(0 0 20px rgba(255,215,0,0.9))}
+            }
+
+            @media (max-width: 768px) {
+                .nav-menu {
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                }
+                .nav-link {
+                    font-size: 0.9rem;
+                    padding: 0.4rem 0.8rem;
+                }
+            }
         /* خلفية النجوم */
         .stars {
             position: fixed;
@@ -82,6 +147,22 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            /* add luxury shake + golden glow like main page */
+            animation: luxury-shake 0.8s ease-in-out infinite, golden-glow 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+        }
+
+        @keyframes luxury-shake {
+            0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+            10% { transform: translateX(-1px) translateY(-1px) rotate(-0.5deg); }
+            20% { transform: translateX(1px) translateY(1px) rotate(0.5deg); }
+            30% { transform: translateX(-1px) translateY(1px) rotate(-0.3deg); }
+            40% { transform: translateX(1px) translateY(-1px) rotate(0.3deg); }
+            50% { transform: translateX(-0.5px) translateY(-0.5px) rotate(-0.2deg); }
+            60% { transform: translateX(0.5px) translateY(0.5px) rotate(0.2deg); }
+            70% { transform: translateX(-0.5px) translateY(0.5px) rotate(-0.1deg); }
+            80% { transform: translateX(0.5px) translateY(-0.5px) rotate(0.1deg); }
+            90% { transform: translateX(-0.2px) translateY(-0.2px) rotate(-0.05deg); }
         }
 
         .header p {
@@ -268,10 +349,18 @@
     <!-- خلفية النجوم -->
     <div class="stars" id="stars"></div>
 
+        <!-- قائمة التنقل -->
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">🏠 الرئيسية</a>
+            <a href="help.html" class="nav-link active">❓ المساعدة</a>
+            <a href="index_new.html" class="nav-link">📋 معلومات السيرفر</a>
+            <a href="README.html" class="nav-link">📋 README / الشرح المبسط للسيرفر</a>
+        </nav>
+
     <!-- الهيدر -->
     <header class="header">
         <div class="header-image">
-            <img src="logo1.jpg" alt="عالم كاكين المدمر بعد الحرب العظيمة" onerror="this.style.display='none'; document.getElementById('fallback-svg').style.display='block';">
+            <img src="assest/IMG-20251022-WA0000.jpg" alt="عالم كاكين المدمر بعد الحرب العظيمة" onerror="this.style.display='none'; document.getElementById('fallback-svg').style.display='block';">
             <!-- SVG احتياطي في حالة عدم وجود الصورة -->
             <svg id="fallback-svg" style="display: none;" width="100%" height="200" viewBox="0 0 800 200">
                 <!-- خلفية السماء الحمراء -->
@@ -312,112 +401,24 @@
                 <text x="400" y="50" text-anchor="middle" fill="#ffdd00" font-size="16" font-weight="bold">عالم كاكين المدمر</text>
             </svg>
         </div>
-        <h1>🏰 سيرفر كاكين 🏰</h1>
+    <h1 class="golden-title">🏰 سيرفر RizeMC 🏰</h1>
         <div style="background: rgba(255, 221, 0, 0.2); border: 2px solid #ffdd00; border-radius: 10px; padding: 1rem; margin: 1rem 0; display: inline-block;">
             <h2 style="margin: 0; color: #ffdd00; font-size: 1.5rem;">⭐ الموسم الثاني ⭐</h2>
             <p style="margin: 0.5rem 0 0 0; color: #fff;">جافا مكركة وأصلية - تجربة محسنة بالكامل!</p>
         </div>
         <p>عالم ما بعد الحرب العظيمة - اختر مصيرك واكتب تاريخك</p>
     </header>
-
-    <!-- المحتوى الرئيسي -->
-    <div class="container">
-        <!-- قصة العالم -->
+        <!-- طريقة المساعدة والتذاكر -->
         <section class="story-section">
-            <h2>⚔️ قصة العالم</h2>
-            <p>
-                بعد حرب عظيمة دمرت قارة كاكين، سقطت المملكة العظيمة التي كانت تحكم العالم وتنشر العدل. 
-                انتشر الفساد في كل مكان، وتفرق الناس في الأرض يبحثون عن النجاة والبقاء.
-            </p>
-            <p>
-                الآن، العالم بلا قيود أو حماية من أي سلطة عليا. كل فرد عليه أن يعتمد على ذكائه وقوته 
-                ليبني مملكته الخاصة ويحمي نفسه وثرواته من الأخطار المحيطة.
-            </p>
-        </section>
-
-        <!-- الفئات الأربع -->
-        <section>
-            <h2 style="text-align: center; color: #ffdd00; font-size: 2.5rem; margin-bottom: 2rem;">🌍 فئات العالم الأربع</h2>
-            <div class="factions">
-                <!-- الثلاث فئات في الأعلى -->
-                <div class="faction">
-                    <span class="faction-icon">⚔️</span>
-                    <h3>الفايكينغ</h3>
-                    <p>محاربون شرسون يغزون كل أرض تقع تحت أنظارهم. ينهبون الثروات ويفسدون في الأرض، لا يعرفون الرحمة في معاركهم.</p>
-                </div>
-                
-                <div class="faction">
-                    <span class="faction-icon">🏘️</span>
-                    <h3>الناس العادية</h3>
-                    <p>مواطنون يسعون للتطور التدريجي وبناء دولهم الخاصة. يعتمدون على التعاون والتخطيط الذكي للنجاة والازدهار.</p>
-                </div>
-                
-                <div class="faction">
-                    <span class="faction-icon">🏴‍☠️</span>
-                    <h3>القراصنة</h3>
-                    <p>حكام البحار الذين يسيطرون على الطرق البحرية. يمكنهم عقد صفقات مع الممالك مقابل المرور الآمن في مياههم.</p>
-                </div>
-                
-                <!-- التجار في الأسفل -->
-                <div class="faction" style="grid-column: 1 / -1; max-width: 400px; margin: 2rem auto 0 auto;">
-                    <span class="faction-icon">💰</span>
-                    <h3>التجار</h3>
-                    <p>جامعو الموارد والأشياء النادرة الذين ينتشرون في كل مكان. يبيعون بضائعهم في السوق الكبرى ويتحكمون في الاقتصاد.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- الحياة في العالم -->
-        <section class="world-life">
-            <h2>🌾 الحياة في عالم كاكين</h2>
-            <div class="features">
-                <div class="feature">
-                    <h3>🧠 الذكاء أساس البقاء</h3>
-                    <p>النجاة تعتمد على ذكائك وقدرتك على التخطيط والتكيف مع التحديات المستمرة.</p>
-                </div>
-                
-                <div class="feature">
-                    <h3>🌱 الزراعة مصدر القوة</h3>
-                    <p>المحاصيل هي عماد الاقتصاد، والسيطرة على الموارد الزراعية تعني السيطرة على القوة.</p>
-                </div>
-                
-                <div class="feature">
-                    <h3>🏪 السوق الكبرى</h3>
-                    <p>مركز التجارة حيث يتحكم التجار في أسعار المحاصيل والموارد حسب العرض والطلب.</p>
-                </div>
-                
-                <div class="feature">
-                    <h3>🛡️ احم نفسك</h3>
-                    <p>لا توجد حماية من الإدارة - عليك بناء دفاعاتك الخاصة وإخفاء كنوزك بذكاء.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- معلومات السيرفر -->
-        <section class="story-section" style="background: linear-gradient(135deg, rgba(255, 221, 0, 0.1), rgba(255, 136, 0, 0.1)); border-color: #ffdd00;">
-            <h2 style="text-align: center; color: #ff8800;">🎮 معلومات الاتصال بالسيرفر</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                <div style="background: rgba(255, 136, 0, 0.1); border: 2px solid #ff8800; border-radius: 10px; padding: 1.5rem; text-align: center;">
-                    <h3 style="color: #ffdd00; margin-bottom: 1rem;">📡 عنوان IP</h3>
-                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-family: monospace; font-size: 1.2rem; color: #fff; border: 1px solid #ff8800;">
-                        <span id="server-ip">play.kakin.net</span>
-                    </div>
-                    <button class="btn" onclick="copyIP()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">📋 نسخ IP</button>
-                </div>
-                
-                <div style="background: rgba(255, 136, 0, 0.1); border: 2px solid #ff8800; border-radius: 10px; padding: 1.5rem; text-align: center;">
-                    <h3 style="color: #ffdd00; margin-bottom: 1rem;">🔌 البورت</h3>
-                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-family: monospace; font-size: 1.2rem; color: #fff; border: 1px solid #ff8800;">
-                        <span id="server-port">25565</span>
-                    </div>
-                    <button class="btn" onclick="copyPort()" style="padding: 0.5rem 1rem; font-size: 0.9rem;">📋 نسخ البورت</button>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: rgba(255, 68, 68, 0.1); border-radius: 10px; border: 1px solid #ff4444;">
-                <p style="margin: 0; color: #ffdd00; font-weight: bold;">💎 يدعم الجافا المكركة والأصلية</p>
-                <p style="margin: 0.5rem 0 0 0; color: #fff;">الإصدار المدعوم: 1.21.9.x</p>
-            </div>
+            <h2 style="text-align: center; color: #ff8800;">� المساعدة وفتح التذاكر</h2>
+            <p>إذا واجهت أي مشكلة داخل السيرفر، الرجاء عدم مراسلة الإدارة على الخاص أو منشنهم، بل افتح تذكرة في روم <strong>🎫┃𝐓𝐢𝐜𝐤𝐞𝐭</strong> داخل الديسكورد.</p>
+            <ul class="ticket-types">
+                <li>✨ تذكرة اقتراح: لاستعراض أفكارك عن إضافات (بلجن - داتاباك - ريسورسباك - مباني ...)</li>
+                <li>🎮 تذكرة شكوى: للإبلاغ عن لاعب أو سلوك مخالف داخل السيرفر أو الديسكورد</li>
+                <li>� تذكرة الدعم الفني: لطلب مساعدة تقنية أو إدارية تظهر لك أثناء اللعب</li>
+            </ul>
+            <p>للتقديم على الدخول للسيرفر (إن كان مطلوباً)، انتقل لروم <strong>💴┃𝐒𝐮𝐛𝐦𝐢𝐬𝐬𝐢𝐨𝐧</strong> واملأ نموذج التقديم بالإجابات المطلوبة.</p>
+            <p>للاطلاع على تفاصيل ومعلومات الاتصال بالسيرفر (IP / بورت / إصدار) توجه إلى صفحة <a href="README.html" class="abtn">README / الشرح المبسط للسيرفر</a>.</p>
         </section>
 
         <!-- أزرار التفاعل -->
@@ -435,7 +436,7 @@
                 اختر فئتك بحكمة، وابني تحالفاتك بذكاء، واحم مواردك بقوة.
             </p>
             <p style="text-align: center; font-size: 1.3rem; color: #ffdd00; font-weight: bold;">
-                🌟 مرحباً بك في عالم كاكين - حيث الأقوى فقط هو من يبقى! 🌟
+                🌟 مرحباً بك في عالم RizeMC - حيث الأقوى فقط هو من يبقى! 🌟
             </p>
         </section>
     </div>
@@ -522,6 +523,124 @@
                 alert(`⚔️ لقد اخترت فئة: ${factionName}\n\nهل أنت مستعد لبدء رحلتك في عالم كاكين؟`);
             });
         });
+
+        // ===== Music player popup controller (shared) =====
+        function toggleMusic(e){
+            if(e) e.preventDefault();
+            try{
+                const existing = window.open('', 'rize_music_player');
+                if(existing && !existing.closed){
+                    existing.postMessage({cmd:'toggle'}, '*');
+                    const playing = localStorage.getItem('rize_music_playing') === 'true';
+                    localStorage.setItem('rize_music_playing', (!playing).toString());
+                    updateMusicButton();
+                    return;
+                }
+            }catch(err){}
+
+            // open new player window (must be user gesture)
+            const win = window.open('audio_player.html', 'rize_music_player', 'width=420,height=140');
+            function onReady(ev){
+                if(ev.data && ev.data.playerReady){
+                    window.removeEventListener('message', onReady);
+                    try{ const w = window.open('', 'rize_music_player'); if(w && !w.closed){ w.postMessage({cmd:'play'}, '*'); localStorage.setItem('rize_music_playing','true'); updateMusicButton(); }}catch(e){}
+                }
+            }
+            window.addEventListener('message', onReady);
+            setTimeout(()=>{
+                try{ const w2 = window.open('', 'rize_music_player'); if(w2 && !w2.closed){ w2.postMessage({cmd:'play'}, '*'); localStorage.setItem('rize_music_playing','true'); updateMusicButton(); window.removeEventListener('message', onReady); }}catch(e){}
+            }, 800);
+        }
+
+        function updateMusicButton(){
+            const btn = document.getElementById('music-toggle');
+            if(!btn) return;
+            const playing = localStorage.getItem('rize_music_playing') === 'true';
+            btn.textContent = playing ? '⏸️ إيقاف الموسيقى' : '🔊 تشغيل الموسيقى';
+        }
+
+        window.addEventListener('load', updateMusicButton);
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98a6cc7a2659adb5',t:'MTc1OTc3MDkwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
+<!-- Background music controller (reads data/info.json -> music.file). Press 'M' to toggle music -->
+<script>
+(function(){
+    const MUSIC_KEY = 'bgMusicPaused';
+    let audioEl = null;
+
+    function createControl(){
+        if(document.getElementById('music-toggle')) return;
+        const ctrl = document.createElement('button');
+        ctrl.id = 'music-toggle';
+        ctrl.title = 'M لتشغيل/إيقاف الموسيقى';
+        ctrl.style.position = 'fixed';
+        ctrl.style.left = '10px';
+        ctrl.style.bottom = '10px';
+        ctrl.style.zIndex = 9999;
+        ctrl.style.background = 'rgba(0,0,0,0.5)';
+        ctrl.style.color = '#fff';
+        ctrl.style.border = 'none';
+        ctrl.style.padding = '0.6rem 0.8rem';
+        ctrl.style.borderRadius = '8px';
+        ctrl.style.cursor = 'pointer';
+        ctrl.addEventListener('click', ()=>{
+            if(!audioEl) return;
+            if(audioEl.paused){ audioEl.play(); localStorage.setItem(MUSIC_KEY,'false'); ctrl.textContent='🔊'; }
+            else { audioEl.pause(); localStorage.setItem(MUSIC_KEY,'true'); ctrl.textContent='🔇'; }
+        });
+        document.body.appendChild(ctrl);
+        return ctrl;
+    }
+
+    function showPlayHint(){
+        if(document.getElementById('music-hint')) return;
+        const hint = document.createElement('div');
+        hint.id = 'music-hint';
+        hint.style.position = 'fixed';
+        hint.style.left = '50%';
+        hint.style.top = '92%';
+        hint.style.transform = 'translate(-50%, -50%)';
+        hint.style.zIndex = 10000;
+        hint.innerHTML = '<button id="music-start-btn" style="padding:0.6rem 1rem;border-radius:8px;border:none;background:#ff4444;color:#fff;">تشغيل الموسيقى</button>';
+        document.body.appendChild(hint);
+        document.getElementById('music-start-btn').addEventListener('click', ()=>{
+            if(audioEl){ audioEl.play().then(()=>{ hint.remove(); localStorage.setItem(MUSIC_KEY,'false'); const c = document.getElementById('music-toggle'); if(c) c.textContent='🔊'; }); }
+        });
+    }
+
+    function initMusic(){
+        fetch('data/info.json').then(r=>r.json()).then(cfg=>{
+            const file = cfg && cfg.music && cfg.music.file;
+            const loop = cfg && cfg.music && cfg.music.loop;
+            if(!file) return;
+            audioEl = document.getElementById('bg-music') || new Audio(file);
+            audioEl.id = 'bg-music';
+            audioEl.loop = loop === undefined ? true : !!loop;
+            audioEl.preload = 'auto';
+            audioEl.volume = 0.5;
+            audioEl.crossOrigin = 'anonymous';
+            if(!document.getElementById('bg-music')) document.body.appendChild(audioEl);
+
+            const ctrl = createControl();
+
+            const paused = localStorage.getItem(MUSIC_KEY);
+            if(paused === 'true'){
+                audioEl.pause(); if(ctrl) ctrl.textContent='🔇';
+            } else {
+                audioEl.play().then(()=>{ if(ctrl) ctrl.textContent='🔊'; }).catch(()=>{ if(ctrl) ctrl.textContent='🔇'; showPlayHint(); });
+            }
+
+            window.addEventListener('keydown', (e)=>{
+                if(e.key && e.key.toLowerCase() === 'm'){
+                    if(audioEl.paused){ audioEl.play(); localStorage.setItem(MUSIC_KEY,'false'); if(ctrl) ctrl.textContent='🔊'; }
+                    else { audioEl.pause(); localStorage.setItem(MUSIC_KEY,'true'); if(ctrl) ctrl.textContent='🔇'; }
+                }
+            });
+        }).catch(err=>{ console.error('Failed to load music config', err); });
+    }
+
+    document.addEventListener('DOMContentLoaded', initMusic);
+})();
+</script>

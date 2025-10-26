@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="assest/-_News (1).webp" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيرفر رايز ام سي - الموسم الثاني</title>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+        
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Announcement Styles */
+        .announcement-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .announcement-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #ffdd00;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 221, 0, 0.2);
+        }
+
+        .announcement-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 221, 0, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .announcement-box:hover::before {
+            animation: shine 1s forwards;
+        }
+
+        @keyframes shine {
+            to {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        .ticket-types {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ticket-types li {
+            margin: 10px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 221, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .ticket-types li:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #ffdd00;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 221, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 221, 0, 0.2);
+            border-color: #ffdd00;
+        }
+
+        .feature-card h3 {
+            color: #ffdd00;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(45deg, #ff4444, #ff8800, #ffdd00);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('texture.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin: 0;
+            background: linear-gradient(45deg, #fff, #ffdd00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.8),
+                0 0 40px rgba(255, 215, 0, 0.6);
+            position: relative;
+            animation: luxury-shake 0.8s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+        }
+
+        @keyframes luxury-shake {
+            0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+            10% { transform: translateX(-1px) translateY(-1px) rotate(-0.5deg); }
+            20% { transform: translateX(1px) translateY(1px) rotate(0.5deg); }
+            30% { transform: translateX(-1px) translateY(1px) rotate(-0.3deg); }
+            40% { transform: translateX(1px) translateY(-1px) rotate(0.3deg); }
+            50% { transform: translateX(-0.5px) translateY(-0.5px) rotate(-0.2deg); }
+            60% { transform: translateX(0.5px) translateY(0.5px) rotate(0.2deg); }
+            70% { transform: translateX(-0.5px) translateY(0.5px) rotate(-0.1deg); }
+            80% { transform: translateX(0.5px) translateY(-0.5px) rotate(0.1deg); }
+            90% { transform: translateX(-0.2px) translateY(-0.2px) rotate(-0.05deg); }
+        }
+       .header-image {
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 3px solid #ffdd00;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 
+                    0 0 20px rgba(255, 215, 0, 0.8),
+                    0 0 40px rgba(255, 215, 0, 0.6);
+            }
+            to {
+                text-shadow: 
+                    0 0 30px rgba(255, 215, 0, 0.9),
+                    0 0 50px rgba(255, 215, 0, 0.7);
+            }
+        }
+
+        .header p {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 221, 0, 0.3);
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 221, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 221, 0, 0.2);
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+            color: #ffdd00;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .trailer-box {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .trailer-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .trailer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ff1111, #dd0000);
+        }
+                /* زر العودة */
+            /* قائمة التنقل */
+            .nav-menu {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.05);
+                border-bottom: 1px solid rgba(255, 221, 0, 0.3);
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-link {
+                color: #fff;
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                transition: all 0.3s ease;
+                border: 1px solid transparent;
+            }
+
+            .nav-link:hover {
+                background: rgba(255, 221, 0, 0.1);
+                border-color: #ffdd00;
+                transform: translateY(-2px);
+            }
+
+            .nav-link.active {
+                background: rgba(255, 221, 0, 0.2);
+                border-color: #ffdd00;
+            }    
+    
+</style>
+</head>
+<body>
+               <!-- قائمة التنقل -->
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">🏠 الرئيسية</a>
+            <a href="help.html" class="nav-link">❓ المساعدة</a>
+            <a href="index_new.html" class="nav-link active">📋 معلومات السيرفر</a>
+            <a href="README.html" class="nav-link">📋 README / الشرح المبسط للسيرفر</a>
+        </nav>
+    <header class="header">
+        <!-- صوره الاخبار -->
+              <div class="header-image">
+            <img src="assest/-_News (1).webp" alt="عالم كاكين المدمر بعد الحرب العظيمة" onerror="this.style.display='none'; document.getElementById('fallback-svg').style.display='block';">
+        </div>
+        <h1>🏰 سيرفر RizeMC - الموسم الثاني 🏰</h1>
+        <p>عالم ما بعد الحرب العظيمة - صراع الملوك</p>
+        <div class="social-links">
+            <a href="https://discord.gg/9Bzm5FXy8m" class="social-link" target="_blank">
+                <i class="fab fa-discord"></i>
+                ديسكورد السيرفر
+            </a>
+            <a href="https://www.youtube.com/@iDARK-7" class="social-link" target="_blank">
+                <i class="fab fa-youtube"></i>
+                قناتنا على يوتيوب
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- الإعلانات -->
+        <section class="announcement-section">
+            <h2>📢 أخبار مهمة</h2>
+            
+            <div class="announcement-box">
+                <h3>🎫 نظام التذاكر الجديد</h3>
+                <p>تعلن الإدارة جميع اللاعبين بأن أي مشكلة تواجههم في السيرفر يجب التوجه لروم 🎫┃𝐓𝐢𝐜𝐤𝐞𝐭 وفتح تذكرة</p>
+                <ul class="ticket-types">
+                    <li>✨ تذكرة اقتراح: لإضافة (بلجن - داتاباك - ريسورسباك - مبنى)</li>
+                    <li>🎮 تذكرة شكوى: للإبلاغ عن مشكلة مع عضو</li>
+                    <li>📖 تذكرة الدعم الفني: للمساعدة في المشاكل التقنية</li>
+                </ul>
+            </div>
+
+            <div class="announcement-box">
+                <h3>🎮 التسجيل في السيرفر</h3>
+                <p>للانضمام للسيرفر، يرجى الانتقال إلى روم 💴┃𝐒𝐮𝐛𝐦𝐢𝐬𝐬𝐢𝐨𝐧 والإجابة على الأسئلة البسيطة</p>
+                <p>تسعى الإدارة لتوفير أقصى درجات الأمان داخل السيرفر للحصول على أقصى درجة من المتعة ✨</p>
+            </div>
+
+            <div class="announcement-box">
+                <h3>🎬 التريلر الرسمي</h3>
+                <p>شاهد الآن التريلر الرسمي للموسم الثاني! يتضمن:</p>
+                <ul class="ticket-types">
+                    <li>🎮 محتوى السيرفر وقصة العالم</li>
+                    <li>💻 إصدار جافا 1.21.9</li>
+                    <li>🎉 مميزات وتحديثات جديدة</li>
+                </ul>
+                <div class="trailer-box">
+                    <a href="https://www.youtube.com/watch?v=m4KKTjUilDY" class="trailer-btn" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                        شاهد التريلر الآن
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- المميزات الجديدة -->
+        <section class="features-section">
+            <h2>✨ المميزات الجديدة</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🌍 عالم الأوفرورد</h3>
+                    <p>تضاريس وستركشرات جديدة + مباني أسطورية محدثة!</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔥 عالم النذر</h3>
+                    <p>تحديث شامل للتضاريس والبنايات، مع بوسات أقوى!</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌀 عالم الإند</h3>
+                    <p>بايومات جديدة + قرى أسطورية + بوسات قوية</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🐉 قتال التنين</h3>
+                    <p>أصبح أصعب وأقوى بضعف التنين العادي!</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏰 السترونغ هولد</h3>
+                    <p>أكبر، أعمق، وأكثر تعقيدًا، وفيها بوسات خرافية!</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌊 تحديث البحر</h3>
+                    <p>سفن غزو "بلجر" قوية وصعبة الاحتلال!</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏡 القرى</h3>
+                    <p>تصاميم أفخم + لوت أفضل + تفاصيل مذهلة</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏜️ معبد الصحراء</h3>
+                    <p>واحد من أصعب وأكبر الأماكن في اللعبة!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- معلومات السيرفر -->
+        <section class="server-info">
+            <div class="announcement-box">
+                <h3>🎮 معلومات الاتصال</h3>
+                <ul class="ticket-types">
+                    <li>🌐 عنوان IP: <strong>RizeMC_S2.aternos.me</strong></li>
+                    <li>📱 الإصدار: <strong>1.21.9.x</strong></li>
+                    <li>💎 النوع: <strong>جافا مكركة وأصلية</strong></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://www.youtube.com/watch?v=m4KKTjUilDY" class="social-link" target="_blank">
+                        <i class="fas fa-play"></i>
+                        شاهد التريلر
+                    </a>
+                    <a href="#" class="social-link" onclick="copyIP()">
+                        <i class="fas fa-copy"></i>
+                        نسخ IP
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function copyIP() {
+            const ip = "RizeMC_S2.aternos.me";
+            navigator.clipboard.writeText(ip)
+                .then(() => alert('✅ تم نسخ عنوان IP بنجاح!'))
+                .catch(() => {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = ip;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    alert('✅ تم نسخ عنوان IP بنجاح!');
+                });
+        }
+                function goBack() {
+            if (document.referrer) {
+                window.history.back();
+            } else {
+                // إذا لم يكن هناك صفحة سابقة، انتقل للصفحة الرئيسية
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!-- Background music controller (reads data/info.json -> music.file). Press 'M' to toggle music -->
+<script>
+(function(){
+    const MUSIC_KEY = 'bgMusicPaused';
+    let audioEl = null;
+
+    function createControl(){
+        if(document.getElementById('music-toggle')) return;
+        const ctrl = document.createElement('button');
+        ctrl.id = 'music-toggle';
+        ctrl.title = 'M لتشغيل/إيقاف الموسيقى';
+        ctrl.style.position = 'fixed';
+        ctrl.style.left = '10px';
+        ctrl.style.bottom = '10px';
+        ctrl.style.zIndex = 9999;
+        ctrl.style.background = 'rgba(0,0,0,0.5)';
+        ctrl.style.color = '#fff';
+        ctrl.style.border = 'none';
+        ctrl.style.padding = '0.6rem 0.8rem';
+        ctrl.style.borderRadius = '8px';
+        ctrl.style.cursor = 'pointer';
+        ctrl.addEventListener('click', ()=>{
+            if(!audioEl) return;
+            if(audioEl.paused){ audioEl.play(); localStorage.setItem(MUSIC_KEY,'false'); ctrl.textContent='🔊'; }
+            else { audioEl.pause(); localStorage.setItem(MUSIC_KEY,'true'); ctrl.textContent='🔇'; }
+        });
+        document.body.appendChild(ctrl);
+        return ctrl;
+    }
+
+    function showPlayHint(){
+        if(document.getElementById('music-hint')) return;
+        const hint = document.createElement('div');
+        hint.id = 'music-hint';
+        hint.style.position = 'fixed';
+        hint.style.left = '50%';
+        hint.style.top = '92%';
+        hint.style.transform = 'translate(-50%, -50%)';
+        hint.style.zIndex = 10000;
+        hint.innerHTML = '<button id="music-start-btn" style="padding:0.6rem 1rem;border-radius:8px;border:none;background:#ff4444;color:#fff;">تشغيل الموسيقى</button>';
+        document.body.appendChild(hint);
+        document.getElementById('music-start-btn').addEventListener('click', ()=>{
+            if(audioEl){ audioEl.play().then(()=>{ hint.remove(); localStorage.setItem(MUSIC_KEY,'false'); const c = document.getElementById('music-toggle'); if(c) c.textContent='🔊'; }); }
+        });
+    }
+
+    function initMusic(){
+        fetch('data/info.json').then(r=>r.json()).then(cfg=>{
+            const file = cfg && cfg.music && cfg.music.file;
+            const loop = cfg && cfg.music && cfg.music.loop;
+            if(!file) return;
+            audioEl = document.getElementById('bg-music') || new Audio(file);
+            audioEl.id = 'bg-music';
+            audioEl.loop = loop === undefined ? true : !!loop;
+            audioEl.preload = 'auto';
+            audioEl.volume = 0.5;
+            audioEl.crossOrigin = 'anonymous';
+            if(!document.getElementById('bg-music')) document.body.appendChild(audioEl);
+
+            const ctrl = createControl();
+
+            const paused = localStorage.getItem(MUSIC_KEY);
+            if(paused === 'true'){
+                audioEl.pause(); if(ctrl) ctrl.textContent='🔇';
+            } else {
+                audioEl.play().then(()=>{ if(ctrl) ctrl.textContent='🔊'; }).catch(()=>{ if(ctrl) ctrl.textContent='🔇'; showPlayHint(); });
+            }
+
+            window.addEventListener('keydown', (e)=>{
+                if(e.key && e.key.toLowerCase() === 'm'){
+                    if(audioEl.paused){ audioEl.play(); localStorage.setItem(MUSIC_KEY,'false'); if(ctrl) ctrl.textContent='🔊'; }
+                    else { audioEl.pause(); localStorage.setItem(MUSIC_KEY,'true'); if(ctrl) ctrl.textContent='🔇'; }
+                }
+            });
+        }).catch(err=>{ console.error('Failed to load music config', err); });
+    }
+
+    document.addEventListener('DOMContentLoaded', initMusic);
+})();
+</script>
