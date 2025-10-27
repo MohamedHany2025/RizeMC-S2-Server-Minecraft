@@ -89,7 +89,7 @@
         // Get saved state
         const savedState = loadMusicState();
         
-        fetch('data/info.json')
+        fetch('info.json')
             .then(r => r.json())
             .then(cfg => {
                 const file = cfg && cfg.music && cfg.music.file;
