@@ -1,0 +1,82 @@
+/* Shared styles for RizeMC website */
+
+/* Music control button */
+#music-toggle {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    z-index: 9999;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#music-toggle:hover {
+    background: rgba(0,0,0,0.7);
+    transform: scale(1.05);
+}
+
+/* Music play hint */
+#music-hint {
+    position: fixed;
+    left: 50%;
+    top: 92%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+}
+
+#music-start-btn {
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background: #ff4444;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#music-start-btn:hover {
+    background: #ff6666;
+    transform: scale(1.05);
+}
+
+/* Footer links */
+.abtn {
+    color: #ffdd00;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.abtn:hover {
+    text-decoration: underline;
+    text-decoration-color: #ff8800;
+    color: #ff8800;
+}
+
+/* Copyright footer */
+.site-footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.site-footer__credits {
+    margin-top: 0.5rem;
+}
+
+/* Golden title animation (shared across pages) */
+.golden-title {
+    background: linear-gradient(45deg, #ffd700, #ffed4e, #fff700, #ffd700);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: luxury-shake 0.8s ease-in-out infinite, golden-glow 2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+}

@@ -25,7 +25,7 @@ assest/intro.mp4
 4. Add before closing BODY tag of index.html only:
 ```html
     <!-- Background music and intro video controllers -->
-    <script src="assets/intro.js"></script>
+    <script src="intro.js"></script>
 ```
 
 The new files I created will:

@@ -1,0 +1,71 @@
+/* Intro video overlay styles */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-container {
+    position: relative;
+    width: 90%;
+    max-width: 1024px;
+    aspect-ratio: 16/9;
+    box-shadow: 0 0 50px rgba(255, 68, 68, 0.3),
+                0 0 100px rgba(255, 68, 68, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #ff4444;
+}
+
+.intro-video {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.skip-button {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(45deg, #ff4444, #ff8800);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    z-index: 10001;
+}
+
+.skip-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: pulse 2s infinite;
+}
+
+.skip-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 68, 68, 0.5);
+    background: linear-gradient(45deg, #ff6666, #ffaa00);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Hide intro by default on non-index pages */
+body:not(.index-page) .intro-overlay {
+    display: none;
+}

@@ -1,0 +1,156 @@
+.update-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+    backdrop-filter: blur(10px);
+}
+
+.update-popup-container {
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 50px rgba(255, 68, 68, 0.3),
+                0 0 100px rgba(255, 68, 68, 0.2);
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    position: relative;
+}
+
+.update-popup-overlay.active {
+    opacity: 1;
+}
+
+.update-popup-overlay.active .update-popup-container {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.update-title {
+    color: #ff4444;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+    animation: glow 2s infinite alternate;
+}
+
+.update-content {
+    color: #fff;
+    line-height: 1.6;
+    direction: rtl;
+}
+
+.update-content pre {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border: 1px solid rgba(255, 68, 68, 0.3);
+    direction: ltr;
+}
+
+.update-content code {
+    color: #ff8888;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.close-button:hover {
+    background: rgba(255, 68, 68, 0.2);
+    transform: rotate(90deg);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 68, 68, 0.8),
+                     0 0 30px rgba(255, 68, 68, 0.6);
+    }
+}
+
+.show-updates-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+    transition: all 0.3s;
+    z-index: 9998;
+    animation: float 3s infinite;
+}
+
+.show-updates-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Footer-trigger button style (placed inside footer) */
+.updates-footer-btn {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.25);
+    transition: all 0.25s ease;
+}
+.updates-footer-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(255, 68, 68, 0.35);
+}
+
+/* Make sure the floating button is hidden on narrow screens if footer button is present */
+@media (max-width: 600px) {
+    .show-updates-button { display: none; }
+}
