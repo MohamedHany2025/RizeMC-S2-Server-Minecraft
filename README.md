@@ -144,9 +144,9 @@
 
 <div align="center">
 
-**🌟 مرحباً بك في عالم رايز ام سي - حيث الأقوى فقط هو من يبقى! 🌟**
+**🌟 مرحباً بك في عالم RizeMC - حيث الأقوى فقط هو من يبقى! 🌟**
 
 [![Discord](https://img.shields.io/badge/Discord-Join%20Server-7289da?style=for-the-badge&logo=discord)](https://discord.gg/FKNrEaF9Zv)
 
 ---
-*جميع الحقوق محفوظه 2025 | تم انشاء الموقع بواسطه  [Mohamed Hany](https://www.facebook.com/xspeedo.gaming.2025#)*
+*جميع الحقوق محفوظه 2025 | [Mohamed Hany](https://www.facebook.com/xspeedo.gaming.2025#) تم انشاء الموقع بواسطه *
